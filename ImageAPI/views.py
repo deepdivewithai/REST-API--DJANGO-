@@ -29,6 +29,7 @@ with open('./models/imagenet_classes.json', 'r') as f:
 
 labelInfo = json.loads(labelInfo)
 
+
 model_graph = tf.Graph()
 with model_graph.as_default():
     tf_session = tf.compat.v1.Session()
@@ -38,9 +39,9 @@ with model_graph.as_default():
 
 def prediction(request):
     
-    Image_data = Image.objects.last()
+    Image_data = Image.objects.all()
 
-    file_url = default_storage.url(Image_data.image)
+    file_url = default_storage.url(Image_data[2].image)
 
     testimage = '.'+file_url
 
