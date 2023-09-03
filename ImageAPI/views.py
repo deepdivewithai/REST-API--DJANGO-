@@ -6,3 +6,7 @@ from .serializers import ImageSerializer
 class ImageListView(generics.ListCreateAPIView):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
+
+class ImageDetailView(generics.RetrieveDestroyAPIView):
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
